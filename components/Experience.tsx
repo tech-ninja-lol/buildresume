@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import user from '../assets/user-1-svgrepo-com.svg'
 import cvhero from '../assets/cvhero.svg'
 const Experience = () => {
     return (
