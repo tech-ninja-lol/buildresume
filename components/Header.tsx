@@ -14,8 +14,8 @@ const Header = () => {
                 <Link href='/'>
                 <li>Free CV maker</li>
                 </Link>
-                <Link href='/template'>
-                <li>Free CV template</li>
+                <Link  href='/template'>
+                <li id='template' className='target:text-blue-500 focus:text-blue-500'>Free CV template</li>
                 </Link>
                 <li>Resume</li>
             </ul>

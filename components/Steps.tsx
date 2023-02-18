@@ -2,7 +2,7 @@ import Link from 'next/link'
 const Steps = ({step1, step2, step3}) => {
    
     return (
-        <div className='py-20'>
+        <div className='pt-20 pb-8'>
             <ul className='hidden md:flex w-1/2 mx-auto justify-between mb-10 border-b border-gray-300'>
                 {step1 ? (
                     <Link href={`/user`}>

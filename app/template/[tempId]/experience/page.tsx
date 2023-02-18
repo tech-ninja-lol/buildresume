@@ -3,7 +3,7 @@ import Steps from "@/components/Steps"
 
 const page = () => {
     return (
-        <div>
+        <div className='bg-gray-100'>
             <Steps step1 step2/>
             <Experience/>           
         </div>
