@@ -6,8 +6,8 @@ interface Prop {
 }
 const Experience = ({ id }:Prop) => {
   return (
-    <div className="w-10/12 pb-8 mx-auto">
-      <div className="bg-white px-4 py-8 rounded-md mb-2">
+    <div className="w-11/12 pb-8 mx-auto">
+      <div className="bg-white px-4 py-4 md:py-8 rounded-md mb-2">
         <h2 className="text-2xl font-semibold">Experience</h2>
       </div>
       <div className="flex space-x-8 items-start">
