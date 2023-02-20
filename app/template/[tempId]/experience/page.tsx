@@ -1,7 +1,10 @@
 import Experience from "@/components/Experience"
 import Steps from "@/components/Steps"
-
-const page = ({params}) => {
+import { ParsedUrlQuery } from 'querystring'
+interface Slug {
+    params: any
+}
+const page = ({params}:Slug) => {
     const {tempId} = params
     return (
         <div className='bg-gray-100'>
