@@ -1,11 +1,11 @@
 import Experience from "@/components/Experience"
 import Steps from "@/components/Steps"
 
-const page = () => {
+const page = ({params}) => {
     return (
         <div className='bg-gray-100'>
-            <Steps step1 step2/>
-            <Experience/>           
+            <Steps id={tempId} step1 step2/>
+            <Experience id={tempId}/>           
         </div>
     )
 }

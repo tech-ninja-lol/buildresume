@@ -2,7 +2,7 @@ import Image from 'next/image'
 import user from '../assets/user-1-svgrepo-com.svg'
 import cvhero from '../assets/cvhero.svg'
 import Link from 'next/link'
-const PersonalInfo = () => {
+const PersonalInfo = ({id}) => {
     return (
        <div className='w-10/12 pb-8 mx-auto'>
            <div className='bg-white px-4 py-8 rounded-md mb-2'>
@@ -84,8 +84,8 @@ const PersonalInfo = () => {
                 </div>
             </div>
             <div className='w-full my-8 md:w-8/12 flex space-x-8'>
-                <button className='bg-transparent border border-blue-500 rounded-md font-semibold text-lg text-blue-500 w-[14rem] h-14'>Back</button>
-                <Link href='experience'>
+                <button disabled className='bg-transparent border border-blue-500 rounded-md font-semibold text-lg text-blue-500 w-[14rem] h-14'>Back</button>
+                <Link href={`/template/${id}/experience`}>
                 <button className='bg-blue-500 rounded-md font-semibold text-lg text-white w-[14rem] h-14'>Save and Continue</button>
                 </Link>
             </div>

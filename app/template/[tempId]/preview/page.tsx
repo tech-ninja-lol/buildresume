@@ -1,10 +1,11 @@
 import PreviewResume from "@/components/PreviewResume"
 import Steps from "@/components/Steps"
 
-const page = () => {
+const page = ({params}) => {
+  const {tempId}=params
     return (
         <div>
-          <Steps step1 step2 step3/>
+          <Steps id={tempId} step1 step2 step3/>
           <PreviewResume/> 
         </div>
     )
