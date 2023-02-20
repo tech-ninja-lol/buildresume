@@ -21,10 +21,10 @@ const Header = () => {
             </ul>
             <div onClick={()=>{
                 setToggleMenu(!toggleMenu)
-            }} className='block cursor-pointer md:hidden'>
-                <div className={`w-8 duration-500 h-1 ${toggleMenu && 'rotate-45 translate-y-2'} bg-blue-500`}/>
-                <div className={`w-8 h-1 duration-500 ${toggleMenu && 'translate-x-60'}  translate-y-[6px] bg-blue-500`}/>
-                <div className={`w-8 h-1 duration-500 ${toggleMenu && '-rotate-45 -mt-2'} translate-y-[12px] bg-blue-500`}/>
+            }} className={`flex flex-col justify-center gap-y-[6px] ${toggleMenu && '-space-y-[10px]'} items-center h-12 w-12 rounded-md border border-blue-400 cursor-pointer md:hidden`}>
+                <div className={`w-8 duration-500 h-1 ${toggleMenu && '-rotate-45 '} bg-blue-500`}/>
+                <div className={`w-8 h-1 duration-500 ${toggleMenu && 'w-0'} bg-blue-500`}/>
+                <div className={`w-8 h-1 duration-500 ${toggleMenu && 'rotate-45'} bg-blue-500`}/>
             </div>
         </div>
       </nav>
