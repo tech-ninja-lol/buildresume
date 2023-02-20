@@ -24,7 +24,7 @@ const Header = () => {
             }} className='block cursor-pointer md:hidden'>
                 <div className={`w-8 duration-500 h-1 ${toggleMenu && 'rotate-45 translate-y-2'} bg-blue-500`}/>
                 <div className={`w-8 h-1 duration-500 ${toggleMenu && 'translate-x-60'}  translate-y-[6px] bg-blue-500`}/>
-                <div className={`w-8 h-1 duration-500 ${toggleMenu && '-rotate-45 -mt-4'} translate-y-[12px] bg-blue-500`}/>
+                <div className={`w-8 h-1 duration-500 ${toggleMenu && '-rotate-45 -mt-2'} translate-y-[12px] bg-blue-500`}/>
             </div>
         </div>
       </nav>
