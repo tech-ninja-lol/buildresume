@@ -83,12 +83,18 @@ const PersonalInfo = ({id}) => {
                     </ul>
                 </div>
             </div>
-            <div className='w-full my-8 md:w-8/12 flex space-x-8'>
-                <button disabled className='bg-transparent border border-blue-500 rounded-md font-semibold text-lg text-blue-500 w-[14rem] h-14'>Back</button>
-                <Link href={`/template/${id}/experience`}>
-                <button className='bg-blue-500 rounded-md font-semibold text-lg text-white w-[14rem] h-14'>Save and Continue</button>
-                </Link>
-            </div>
+            <div className="w-full my-8 md:w-8/12 flex flex-col-reverse gap-y-4 md:flex-row md:space-x-8">
+        <Link href={`/template/${id}/user`}>
+          <button disabled className="bg-transparent opacity-50 w-full border border-blue-500 rounded-md font-semibold text-lg text-blue-500 md:w-[14rem] h-14">
+            Back
+          </button>
+        </Link>
+        <Link href={`/template/${id}/experience`}>
+          <button className="bg-blue-500 rounded-md font-semibold text-lg text-white w-full md:w-[14rem] h-14">
+            Save and Continue
+          </button>
+        </Link>
+      </div>
         </div>
     )
 }

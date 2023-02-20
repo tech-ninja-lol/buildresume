@@ -4,9 +4,9 @@ import Steps from "@/components/Steps"
 const page = ({params}) => {
   const {tempId}=params
     return (
-        <div>
+        <div className='bg-gray-100'>
           <Steps id={tempId} step1 step2 step3/>
-          <PreviewResume/> 
+          <PreviewResume id={tempId}/> 
         </div>
     )
 }

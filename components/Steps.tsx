@@ -35,6 +35,11 @@ const Steps = ({step1, step2, step3, id}) => {
                 )}
                 {step3 ? (
                     <Link href={`/template/${id}/preview`}>
+                        <li className='cursor-pointer py-2 text-black border-b border-black font-semibold'>
+                        <h3>
+                        Experience
+                        </h3>
+                    </li>
                     </Link>
                 ): (
                     <li className='py-2 text-black/30 font-semibold'>

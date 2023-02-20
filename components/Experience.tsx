@@ -7,7 +7,7 @@ const Experience = ({ id }) => {
       <div className="bg-white px-4 py-8 rounded-md mb-2">
         <h2 className="text-2xl font-semibold">Experience</h2>
       </div>
-      <div className="flex space-x-8">
+      <div className="flex space-x-8 items-start">
         <form
           className="w-full bg-white px-4 py-8 rounded-md md:w-8/12"
           action=""
@@ -162,8 +162,46 @@ const Experience = ({ id }) => {
             ></textarea>
           </div>
 
-          <button className='text-blue-500 font-semibold'>Add more experience +</button>
+          <button className='text-blue-500 font-semibold'>Add more education +</button>
 
+          {/* Skills start */}
+          <div className="border-y mt-8 py-2 border-gray-300">
+            <div className="text-xl pt-4 font-semibold">Skills</div>
+            <p className="text-sm py-6 text-black/50">
+            Show your relevant experience (last 10 years). Use bullet points 
+            to note your achievements, 
+            if possible - use numbers/facts (Achieved X, measured by Y, by doing Z).
+            </p>
+          </div>
+          
+          <div className="flex flex-col md:space-x-4 items-center md:flex-row">
+            <div className="relative w-full mt-5">
+              <input
+                type="text"
+                name="specialization"
+                id="skill"
+                placeholder="skill"
+                className="float-input peer"
+                autoComplete="off"
+              />
+              <label className="float-label">Skill</label>
+            </div>
+            <div className="relative w-full mt-5">
+            <label for="pet-select" className='float-label'>Level</label>
+
+            <select className='float-input' name="pets" id="pet-select">
+                <option value="">Select skill level</option>
+                <option value="beginner">Beginner</option>
+                <option value="good">Good</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
+            </select>
+            </div>
+          </div>
+          
+
+          <button className='text-blue-500 mt-4 font-semibold'>Add more skills +</button>
+          {/* skills end */}
         </form>
         <div className="w-4/12 md:flex flex-col rounded-md items-center bg-white px-4 py-8 hidden">
           <Image width={200} height={200} alt="resume" src={cvhero} />
@@ -185,14 +223,14 @@ const Experience = ({ id }) => {
           </ul>
         </div>
       </div>
-      <div className="w-full my-8 md:w-8/12 flex space-x-8">
+      <div className="w-full my-8 md:w-8/12 flex flex-col-reverse gap-y-4 md:flex-row md:space-x-8">
         <Link href={`/template/${id}/user`}>
-          <button className="bg-transparent border border-blue-500 rounded-md font-semibold text-lg text-blue-500 w-[14rem] h-14">
+          <button className="bg-transparent w-full border border-blue-500 rounded-md font-semibold text-lg text-blue-500 md:w-[14rem] h-14">
             Back
           </button>
         </Link>
         <Link href={`/template/${id}/preview`}>
-          <button className="bg-blue-500 rounded-md font-semibold text-lg text-white w-[14rem] h-14">
+          <button className="bg-blue-500 rounded-md font-semibold text-lg text-white w-full md:w-[14rem] h-14">
             Save and Continue
           </button>
         </Link>

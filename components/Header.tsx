@@ -24,31 +24,37 @@ const Header = () => {
             }} className='block cursor-pointer md:hidden'>
                 <div className={`w-8 duration-500 h-1 ${toggleMenu && 'rotate-45 translate-y-2'} bg-blue-500`}/>
                 <div className={`w-8 h-1 duration-500 ${toggleMenu && 'translate-x-60'}  translate-y-[6px] bg-blue-500`}/>
-                <div className={`w-8 h-1 duration-500 ${toggleMenu && '-rotate-45 translate-y-0'} translate-y-[12px] bg-blue-500`}/>
+                <div className={`w-8 h-1 duration-500 ${toggleMenu && 'translate-y-[0.4px] -rotate-45'} translate-y-[12px] bg-blue-500`}/>
             </div>
         </div>
       </nav>
       {/* Mobile Menu */}
       {toggleMenu && (
           <ul className='w-full pt-[60px] block md:hidden'>
+          <Link href='/'>
           <li className='border-y bg-gray-100 py-3 font-semibold text-md border-black'>
               <div className='flex justify-between w-10/12 mx-auto'>
                   <div>Free CV maker</div>
                   <div>Arr</div>
               </div>
           </li>
+          </Link>
+          <Link href='/template'>
           <li className='bg-gray-100 py-3 font-semibold text-md'>
               <div className='flex justify-between w-10/12 mx-auto'>
                   <div>Free CV template</div>
                   <div>Arr</div>
               </div>
           </li>
+          </Link>
+          <Link href='/'>
           <li className='border-y bg-gray-100 py-3 font-semibold text-md border-black'>
               <div className='flex justify-between w-10/12 mx-auto'>
                   <div>Resume</div>
                   <div>Arr</div>
               </div>
           </li>
+          </Link>
          
         </ul>
       )}
