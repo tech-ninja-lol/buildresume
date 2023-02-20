@@ -2,7 +2,11 @@ import Image from 'next/image'
 import user from '../assets/user-1-svgrepo-com.svg'
 import cvhero from '../assets/cvhero.svg'
 import Link from 'next/link'
-const PersonalInfo = ({id}) => {
+
+interface Prop {
+    id:number
+}
+const PersonalInfo = ({id}:Prop) => {
     return (
        <div className='w-10/12 pb-8 mx-auto'>
            <div className='bg-white px-4 py-8 rounded-md mb-2'>
