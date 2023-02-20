@@ -1,10 +1,7 @@
-import Steps from "@/components/Steps"
 
-const Layout = ({children}) => {
+const Layout = () => {
     return (
-        <div>
-            <Steps/>
-            {children}            
+        <div>         
         </div>
     )
 }
