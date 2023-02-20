@@ -1,7 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import cvhero from "../assets/cvhero.svg";
-const Experience = ({ id }) => {
+interface Prop {
+  id:number
+}
+const Experience = ({ id }:Prop) => {
   return (
     <div className="w-10/12 pb-8 mx-auto">
       <div className="bg-white px-4 py-8 rounded-md mb-2">
@@ -187,7 +190,7 @@ const Experience = ({ id }) => {
               <label className="float-label">Skill</label>
             </div>
             <div className="relative w-full mt-5">
-            <label for="pet-select" className='float-label'>Level</label>
+            <label  className='float-label'>Level</label>
 
             <select className='float-input' name="pets" id="pet-select">
                 <option value="">Select skill level</option>

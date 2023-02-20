@@ -1,5 +1,12 @@
 import Link from 'next/link'
-const Steps = ({step1, step2, step3, id}) => {
+
+interface Prop {
+    step1?:boolean;
+    step2?: boolean;
+    step3?: boolean;
+    id: number
+}
+const Steps = ({step1, step2, step3, id}:Prop) => {
     return (
         <div className='pt-20 pb-8'>
             <ul className='hidden md:flex w-1/2 mx-auto justify-between mb-10 border-b border-gray-300'>
