@@ -3,7 +3,7 @@ import WhatCV from "@/components/WhatCV";
 const page = () => {
     return (
         <div>
-        <h2 className='pt-24 text-3xl text-center font-bold text-blue-700'>Free CV templates ready
+        <h2 className='pt-24 text-xl md:text-3xl px-4 text-center font-bold text-blue-700'>Free CV templates ready
         edit and download in pdf
         </h2>
         <br/>

@@ -32,26 +32,25 @@ const Header = () => {
       {toggleMenu && (
           <ul className='w-full pt-[60px] block md:hidden'>
           <Link href='/'>
-          <li className='border-y bg-gray-100 py-3 font-semibold text-md border-black'>
+          <li onClick={()=>{setToggleMenu(false)}} className='border-y bg-gray-100 py-3 font-semibold text-md border-black'>
               <div className='flex justify-between w-10/12 mx-auto'>
                   <div>Free CV maker</div>
-                  <div>Arr</div>
               </div>
           </li>
           </Link>
           <Link href='/template'>
-          <li className='bg-gray-100 py-3 font-semibold text-md'>
+          <li onClick={()=>{setToggleMenu(false)}} className='bg-gray-100 py-3 font-semibold text-md'>
               <div className='flex justify-between w-10/12 mx-auto'>
                   <div>Free CV template</div>
-                  <div>Arr</div>
+                  
               </div>
           </li>
           </Link>
           <Link href='/'>
-          <li className='border-y bg-gray-100 py-3 font-semibold text-md border-black'>
+          <li onClick={()=>{setToggleMenu(false)}} className='border-y bg-gray-100 py-3 font-semibold text-md border-black'>
               <div className='flex justify-between w-10/12 mx-auto'>
                   <div>Resume</div>
-                  <div>Arr</div>
+                  
               </div>
           </li>
           </Link>
