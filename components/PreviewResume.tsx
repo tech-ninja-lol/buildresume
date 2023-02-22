@@ -1,24 +1,30 @@
 import Image from 'next/image'
 import user from '../assets/user-1-svgrepo-com.svg'
 import cvhero from '../assets/cvhero.svg'
+import {templates} from '../templates'
+
 import Link from 'next/link'
+ 
+
 interface Prop {
-    id:number
+    id:number, 
+    title: string
 }
-const PreviewResume = ({id}:Prop) => {
+const PreviewResume = ({id, title='Human Resource'}:Prop) => {
     return (
        <div className='w-11/12 pb-8 mx-auto'>
            <div className='bg-white px-4 py-4 md:py-8 rounded-md mb-2'>
                <h2 className='text-2xl font-semibold'>Preview</h2>
            </div>
-            <div className='flex md:space-x-8'>
+            <div className='flex items-start md:space-x-8'>
                 <div className='hidden md:block bg-white px-4 py-8 rounded-md md:w-8/12'>
-
-                <div className='w-[2480px] h-[3508px]'>
-
-                </div>
-                </div>
-                <div className='w-full md:w-4/12 md:flex flex-col items-center bg-white px-4 py-4'>
+                {/* Injected Resume */}
+                {templates.map((temp, i)=>{
+                  return temp.id == id && (<temp.temp title={title} key={i}/>)
+                })}
+                {/* Injected Resume preview */}
+                </div> 
+              <div className='w-full md:w-4/12 md:flex flex-col items-center bg-white px-4 py-4'>
                     
                     <h3 className='text-xl font-semibold my-2 text-center'>Your CV is ready!</h3>
                     <p className='text-black/50 text-md font-medium text-center'>Download it or customize it more</p>

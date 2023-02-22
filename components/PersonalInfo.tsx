@@ -1,12 +1,37 @@
+'use client'
 import Image from 'next/image'
 import user from '../assets/user-1-svgrepo-com.svg'
 import cvhero from '../assets/cvhero.svg'
 import Link from 'next/link'
-
+import {useState} from 'react'
+import {useAppDispatch} from '../hooks'
+import {getPersonalInfo} from '../features/userInfoSlice'
 interface Prop {
     id:number
 }
+
+interface Info {
+    title?: string;
+    firstName?: string;
+    lastName?: string;
+    email?: string;
+    address?: string;
+    phone?: number;
+    postalCode?: number
+}
 const PersonalInfo = ({id}:Prop) => {
+    const [personalInfo, setPersonalInfo] = useState<Info>({
+        title: '',
+        firstName: '', 
+        lastName: '', 
+        email: '',
+        address: '',
+        phone: 0,
+        postalCode: 0,
+    })
+    const submitHandler =()=>{
+        // useAppDispatch(getPersonalInfo(personalInfo))
+    }
     return (
        <div className='w-11/12 pb-8 mx-auto'>
            <div className='bg-white px-4 py-4 md:py-8 rounded-md mb-2'>
@@ -16,7 +41,9 @@ const PersonalInfo = ({id}:Prop) => {
                 <form className='w-full bg-white px-4 py-8 rounded-md md:w-8/12' action="">
                 <div className='flex flex-col md:space-x-4 items-center md:flex-row'>
                     <div className="relative w-full mt-5">
-                        <input type="text" name="job title" placeholder="Job title" className="peer float-input" autoComplete="off" />
+                        <input onChange={(e)=>{setPersonalInfo({
+                            ...personalInfo, title: e.target.value
+                        })}} type="text" name="job title" placeholder="Job title" className="peer float-input" autoComplete="off" />
                         <label  className="float-label">
                             Job title
                         </label>
@@ -31,40 +58,51 @@ const PersonalInfo = ({id}:Prop) => {
                 </div> 
                 <div className='flex flex-col md:space-x-4 items-center md:flex-row'>
                     <div className="relative w-full mt-5">
-                        <input type="text" name="first name" id="firstname" placeholder="first name" 
+                        <input onChange={(e)=>{setPersonalInfo({
+                            ...personalInfo, firstName: e.target.value
+                        })}}  type="text" name="first name" id="firstname" placeholder="first name" 
                         className="float-input peer" autoComplete="off" />
                         <label  className="float-label">
-                            First namu
+                            First name
                         </label>
                     </div>
                     <div className="relative w-full mt-5">
-                        <input type="text" name="Last name" id="Last name" placeholder="Last name" className="peer float-input" />
+                        <input onChange={(e)=>{setPersonalInfo({
+                            ...personalInfo, lastName: e.target.value
+                        })}} type="text" name="Last name" id="Last name" placeholder="Last name" className="peer float-input" />
 
                         <label  className="float-label">Last name</label>
                     </div>
                 </div>
                 <div className='flex flex-col md:space-x-4 items-center md:flex-row'>
                     <div className="relative w-full mt-5">
-                        <input type="email" name="email" id="email" placeholder="email" 
+                        <input onChange={(e)=>{setPersonalInfo({
+                            ...personalInfo, email: e.target.value
+                        })}} type="email" name="email" id="email" placeholder="email" 
                         className="float-input peer" autoComplete="off" />
                         <label  className="float-label">
                             Email Address
                         </label>
                     </div>
                     <div className="relative w-full mt-5">
-                        <input type="number" name="phone number" id="phone number" placeholder="phone number" className="peer float-input" />
+                        <input value={personalInfo.phone} onChange={(e)=>{setPersonalInfo({
+                            ...personalInfo, phone: Number(e.target.value)
+                        })}} type="number" name="phone number" id="phone number" placeholder="phone number" className="peer float-input" />
 
                         <label  className="float-label">Phone number</label>
                     </div>
                 </div>
                 <div className="relative mt-5">
-                    <input type="text" name="address" id="address" placeholder="address" className="peer float-input" autoComplete="off" />
+                    <input onChange={(e)=>{setPersonalInfo({
+                            ...personalInfo, address: e.target.value
+                        })}} type="text" name="address" id="address" placeholder="address" className="peer float-input" autoComplete="off" />
                     <label className="float-label">Address</label>
                 </div>
-
                 <div className='flex flex-col md:space-x-4 items-center md:flex-row'>
                     <div className="relative w-full mt-5">
-                        <input type="number" name="postal-code" id="postal-code" placeholder="postal-code" 
+                        <input onChange={(e)=>{setPersonalInfo({
+                            ...personalInfo, postalCode: Number(e.target.value)
+                        })}} type="number" name="postal-code" id="postal-code" placeholder="postal-code" 
                         className="float-input peer" autoComplete="off" />
                         <label  className="float-label">
                             Postal Code
@@ -94,7 +132,7 @@ const PersonalInfo = ({id}:Prop) => {
           </button>
         </Link>
         <Link href={`/template/${id}/experience`}>
-          <button className="bg-blue-500 rounded-md font-semibold text-lg text-white w-full md:w-[14rem] h-14">
+          <button onClick={submitHandler} className="bg-blue-500 rounded-md font-semibold text-lg text-white w-full md:w-[14rem] h-14">
             Save and Continue
           </button>
         </Link>

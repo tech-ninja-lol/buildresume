@@ -5,7 +5,7 @@ const Header = () => {
     const [toggleMenu, setToggleMenu] = useState<boolean>(false)
   return (
     <>
-      <nav className="w-10/12 z-[100] h-[60px] absolute inset-x-0 py-2 mx-auto">
+      <nav className="w-10/12 z-[100] h-[60px]  py-2 mx-auto">
         <div className="flex justify-between items-center">
             <Link href='/'>
                 <h2 className='text-4xl font-bold'>Resume<span className='text-blue-500'>A</span></h2>
@@ -17,7 +17,9 @@ const Header = () => {
                 <Link  href='/template'>
                 <li id='template' className='target:text-blue-500 focus:text-blue-500'>Free CV template</li>
                 </Link>
+                <Link href='/resume'>
                 <li>Resume</li>
+                </Link>
             </ul>
             <div onClick={()=>{
                 setToggleMenu(!toggleMenu)
@@ -30,7 +32,7 @@ const Header = () => {
       </nav>
       {/* Mobile Menu */}
       {toggleMenu && (
-          <ul className='w-full pt-[60px] block md:hidden'>
+          <ul className='w-full pt-[10px] block md:hidden'>
           <Link href='/'>
           <li onClick={()=>{setToggleMenu(false)}} className='border-y bg-gray-100 py-3 font-semibold text-md border-black'>
               <div className='flex justify-between w-10/12 mx-auto'>
@@ -46,7 +48,7 @@ const Header = () => {
               </div>
           </li>
           </Link>
-          <Link href='/'>
+          <Link href='/resume'>
           <li onClick={()=>{setToggleMenu(false)}} className='border-y bg-gray-100 py-3 font-semibold text-md border-black'>
               <div className='flex justify-between w-10/12 mx-auto'>
                   <div>Resume</div>

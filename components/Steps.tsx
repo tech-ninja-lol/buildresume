@@ -8,7 +8,7 @@ interface Prop {
 }
 const Steps = ({step1, step2, step3, id}:Prop) => {
     return (
-        <div className='pt-20 pb-8'>
+        <div className='py-2 md:py-8'>
             <ul className='hidden md:flex w-1/2 mx-auto justify-between mb-10 border-b border-gray-300'>
                 {step1 ? (
                     <Link href={`/template/${id}/user`}>
