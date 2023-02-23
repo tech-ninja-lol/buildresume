@@ -7,7 +7,7 @@ import WhatCV from "@/components/WhatCV";
 // const inter = Montserrat({ subsets: ['latin'] })
 
 export default async function Home() {
-  return (
+  return ( 
     <main >
       <Hero/>
       <Howto/>

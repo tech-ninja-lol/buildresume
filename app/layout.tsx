@@ -2,8 +2,7 @@ import './globals.css'
 import { Poppins } from '@next/font/google'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import Providers from './providers'
-
+import {Providers} from './providers'
 import { Provider } from "react-redux";
 import store from '../store'
 // import {store_0001} from '../store'
