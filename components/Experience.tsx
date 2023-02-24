@@ -1,12 +1,50 @@
+'use client'
+import {useState} from 'react'
 import Image from "next/image";
 import Link from "next/link";
 import cvhero from "../assets/cvhero.svg";
+import { title } from 'process';
 interface Prop {
   id:number
 }
+
+interface expInfo {
+  summary: string,
+}
+interface expArrType {
+  id?: number
+  title?: string;
+  cityCountry?: string;
+  companyOrganisation?: string;
+  description?: string
+}
 const Experience = ({ id }:Prop) => {
+  const [expAr, setExpAr] = useState<expArrType[]>([
+    {
+      id: 1,
+      title:'',
+      cityCountry:'',
+      companyOrganisation: '',
+      description:''
+    }
+  ])
+  const [experienceInfo, setExperienceInfo] = useState<expInfo>({
+    summary: ''
+  })
+  // console.log(workExperience)
+  const addExperience = (e)=>{
+    e.preventDefault()
+    setExpAr([...expAr, {
+      id: expAr.length+1,
+      title:'',
+      cityCountry:'',
+      companyOrganisation: '',
+      description:''
+    }])
+  }
+  console.log(expAr)
   return (
-    <div className="w-11/12 pb-8 mx-auto">
+    <div className="w-11/12 pb-8 mx-auto"> 
       <div className="bg-white px-4 py-4 md:py-8 rounded-md mb-2">
         <h2 className="text-2xl font-semibold">Experience</h2>
       </div>
@@ -23,21 +61,27 @@ const Experience = ({ id }:Prop) => {
             qualities or skill.
           </p>
           <textarea
+          onChange= {(e)=>{
+            setExperienceInfo({...experienceInfo, summary:e.target.value})
+          }}
             placeholder="write here"
             className="w-full h-[10rem] p-2 outline-none rounded-md border border-gray-300"
           ></textarea>
 
-          <div className="border-y mt-4 py-2 border-gray-300">
-            <div className="text-xl font-semibold">Work Experience</div>
+          
+            {expAr.map((exp, i)=>(
+              <div key={i}>
+                <div className="border-t  mt-4 py-2 border-gray-300">
+            <div className="text-xl font-semibold">Work Experience {i+1}</div>
             <p className="text-sm py-6 text-black/50">
               Add the jobs or positions you have held. In the description talk
               about your best achievements and the tasks you were doing.
             </p>
           </div>
-
-          <div className="flex flex-col md:space-x-4 items-center md:flex-row">
+                <div className="flex border-t border-gray-300 flex-col md:space-x-4 items-center md:flex-row">
             <div className="relative w-full mt-5">
               <input
+              // onChange={(e)=>}
                 type="text"
                 name="title"
                 placeholder="title"
@@ -48,6 +92,9 @@ const Experience = ({ id }:Prop) => {
             </div>
             <div className="relative w-full mt-5">
               <input
+              // onChange={(e)=>{
+              //   setExpAr([...expAr, exp.id == id ? {title:e.target.value}: {title: e.target.value}])
+              // }}
                 type="text"
                 name="city"
                 placeholder="city"
@@ -92,16 +139,17 @@ const Experience = ({ id }:Prop) => {
               <label className="float-label">To</label>
             </div>
           </div>
-          <div className="relative mt-5">
+          <div className="relative my-5">
             <label className="float-label">Description</label>
             <textarea
               placeholder="write here"
               className="w-full h-[10rem] p-2 outline-none rounded-md border border-gray-300"
             ></textarea>
           </div>
-
-          <button className='text-blue-500 font-semibold'>Add more experience +</button>
-
+              </div>
+            ))}
+          <button  onClick= {addExperience} className='text-blue-500 font-semibold'>Add more experience +</button>
+          
           <div className="border-y mt-8 py-2 border-gray-300">
             <div className="text-xl font-semibold">Education</div>
             <p className="text-sm py-6 text-black/50">

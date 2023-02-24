@@ -4,7 +4,7 @@ interface State {
   personalInfo: any 
 }
 
-interface Info {
+export interface Info {
   title?: string;
   firstName?: string;
   lastName?: string;
@@ -18,7 +18,7 @@ const initialState:State = {
 };
 
 export const userInfoSlice = createSlice({
-  name: "allMusic",
+  name: "userInfo",
   initialState,
   reducers: {
     getPersonalInfo: (state, action: PayloadAction<Info>) => {

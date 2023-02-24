@@ -10,6 +10,7 @@ const page = ({params}:Slug) => {
     return (
         <div className='bg-gray-100'>
           <Steps id={tempId} step1 step2 step3/>
+          
           <PreviewResume id={tempId}/> 
         </div>
     )

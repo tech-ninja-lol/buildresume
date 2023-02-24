@@ -1,12 +1,14 @@
+import {Info} from '../features/userInfoSlice'
 interface Prop {
-    title: string
+    personalInfo: Info
 }
-const Template1 = ({title}:Prop) => {
+const Template1 = ({personalInfo}:Prop) => {
+    const {firstName, lastName, title, email, address, phone, postalCode} = personalInfo
     return (
         <div className='w-full text-[14px] shadow-md p-6 my-8 border border-gray-200 mx-auto flex flex-col'>
           {/* Title starts */}
           <div id='title'>
-            <h1 className='text-3xl font-semibold'>Template One</h1>
+            <h1 className='text-3xl font-semibold'>{firstName} {lastName}</h1>
             <p className='text-gray-500 text-lg font-medium'>{title}</p>
           </div>
           {/* Title ends */}
@@ -14,8 +16,8 @@ const Template1 = ({title}:Prop) => {
           {/* Contact starts */}
           <div id='contact' className='flex my-4 space-x-16'>
               <div>
-                  <h3>Phone : <span>09092284972</span></h3>
-                  <h3>Email : <span>09092284972</span></h3>
+                  <h3>Phone : <span>{phone}</span></h3>
+                  <h3>Email : <span>{email}</span></h3>
               </div>
               <div>
                   <h3>Website : <span>https://segun-adeniyi.vercel.app</span></h3>

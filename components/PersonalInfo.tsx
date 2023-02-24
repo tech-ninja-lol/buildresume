@@ -4,7 +4,8 @@ import user from '../assets/user-1-svgrepo-com.svg'
 import cvhero from '../assets/cvhero.svg'
 import Link from 'next/link'
 import {useState} from 'react'
-import {useAppDispatch} from '../hooks'
+import {useDispatch} from 'react-redux'
+import {AppDispatch} from '../store'
 import {getPersonalInfo} from '../features/userInfoSlice'
 interface Prop {
     id:number
@@ -20,6 +21,9 @@ interface Info {
     postalCode?: number
 }
 const PersonalInfo = ({id}:Prop) => {
+    
+  const dispatch = useDispatch<AppDispatch>();
+
     const [personalInfo, setPersonalInfo] = useState<Info>({
         title: '',
         firstName: '', 
@@ -30,7 +34,7 @@ const PersonalInfo = ({id}:Prop) => {
         postalCode: 0,
     })
     const submitHandler =()=>{
-        // useAppDispatch(getPersonalInfo(personalInfo))
+        dispatch(getPersonalInfo(personalInfo))        
     }
     return (
        <div className='w-11/12 pb-8 mx-auto'>
