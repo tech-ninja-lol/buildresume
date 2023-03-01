@@ -78,7 +78,7 @@ const Experience = ({ id }: Prop) => {
     },
   ]);
   // console.log(workExperience)
-  const addExperience = (e:React.FormEvent<HTMLInputElement>) => {
+  const addExperience = (e:React.FormEvent) => {
     e.preventDefault();
     setExperience([
       ...experience,
@@ -92,7 +92,7 @@ const Experience = ({ id }: Prop) => {
     ]);
     // setExpCount(expCount + 1)
   };
-  const addEducation = (e:React.FormEvent<HTMLInputElement>) => {
+  const addEducation = (e:React.FormEvent) => {
     e.preventDefault();
     setEducation([
       ...education,
@@ -101,12 +101,14 @@ const Experience = ({ id }: Prop) => {
         specialization: "",
         school: "",
         description: "",
+        to: '',
+        from: ''
       },
     ]);
     // setExpCount(expCount + 1)
   };
 
-  const addSkill = (e:React.FormEvent<HTMLInputElement>) => {
+  const addSkill = (e:React.FormEvent) => {
     e.preventDefault();
     setSkills([
       ...skills,
@@ -117,32 +119,48 @@ const Experience = ({ id }: Prop) => {
       },
     ]);
   };
-  const updateFieldChanged = (exp:ExperienceType, index: number) => (e:React.FormEvent<HTMLInputElement>) => {
-    // console.log('index: ' + index);
-    // console.log('property name: '+ e.target.name);
-    let newArr = [...experience]; // copying the old datas array
-    // a deep copy is not needed as we are overriding the whole object below, and not setting a property of it. this does not mutate the state.
-    newArr[index] = { ...exp, [e.target.name]: e.target.value }; // replace e.target.value with whatever you want to change it to
-    // console.log(newArr)
+
+ 
+  const updateFieldChanged = (exp:ExperienceType, index: number) => 
+  (e:React.FormEvent<HTMLInputElement>) => {
+    let newArr = [...experience]; 
+    newArr[index] = { ...exp, [(e.target as HTMLInputElement).name]: (e.target as HTMLInputElement).value }; 
     setExperience(newArr);
-    console.log(experience);
   };
-  const updateFieldEducation = (edu:eduType, index: number) => (e:React.FormEvent<HTMLInputElement>) => {
-    // console.log('index: ' + index);
-    // console.log('property name: '+ e.target.name);
-    let newEdu = [...education]; // copying the old datas array
-    // a deep copy is not needed as we are overriding the whole object below, and not setting a property of it. this does not mutate the state.
-    newEdu[index] = { ...edu, [e.target.name]: e.target.value }; // replace e.target.value with whatever you want to change it to
-    // console.log(newArr)
+
+  const updateFieldChangedTextArea = (exp:ExperienceType, index: number) => 
+  (e:React.FormEvent<HTMLTextAreaElement>) => {
+    
+    let newArr = [...experience];
+    newArr[index] = { ...exp, [(e.target as HTMLInputElement).name]: (e.target as HTMLInputElement).value }; // replace e.target.value with whatever you want to change it to
+  
+    setExperience(newArr);
+  };
+  const updateFieldEducation = (edu:eduType, index: number) => 
+  (e:React.FormEvent<HTMLInputElement>) => {
+    let newEdu = [...education]; 
+    newEdu[index] = { ...edu, [(e.target as HTMLInputElement).name]: (e.target as HTMLInputElement).value }; // replace e.target.value with whatever you want to change it to
+   
     setEducation(newEdu);
     console.log(education);
   };
-  const updateFieldSkills = (skill:SkillType, index: number) => (e:React.FormEvent<HTMLInputElement>) => {
+
+  const updateFieldEducationTextArea = (edu:eduType, index: number) => 
+  (e:React.FormEvent<HTMLTextAreaElement>) => {
+    let newEdu = [...education]; 
+    newEdu[index] = { ...edu, [(e.target as HTMLInputElement).name]: (e.target as HTMLInputElement).value }; // replace e.target.value with whatever you want to change it to
+   
+    setEducation(newEdu);
+    console.log(education);
+  };
+
+  const updateFieldSkills = (skill:SkillType, index: number) => 
+  (e:React.FormEvent<HTMLInputElement>):void => {
     // console.log('index: ' + index);
     // console.log('property name: '+ e.target.name);
     let newSkill = [...skills]; // copying the old datas array
     // a deep copy is not needed as we are overriding the whole object below, and not setting a property of it. this does not mutate the state.
-    newSkill[index] = { ...skill, [e.target.name]: e.target.value }; // replace e.target.value with whatever you want to change it to
+    newSkill[index] = { ...skill, [(e.target as HTMLInputElement).name]: (e.target as HTMLInputElement).value }; // replace e.target.value with whatever you want to change it to
     // console.log(newArr)
     setSkills(newSkill);
     console.log(skills);
@@ -264,7 +282,7 @@ const Experience = ({ id }: Prop) => {
                 <textarea
                   name="description"
                   placeholder="write here"
-                  onChange={updateFieldChanged(exp, i)}
+                  onChange={updateFieldChangedTextArea(exp, i)}
                   className="w-full h-[10rem] p-2 outline-none rounded-md border border-gray-300"
                 ></textarea>
               </div>
@@ -342,7 +360,7 @@ const Experience = ({ id }: Prop) => {
                 <label className="float-label">Description</label>
                 <textarea
                   name="description"
-                  onChange={updateFieldEducation(edu, i)}
+                  onChange={updateFieldEducationTextArea(edu, i)}
                   placeholder="write here"
                   className="w-full h-[10rem] p-2 outline-none rounded-md border border-gray-300"
                 ></textarea>
