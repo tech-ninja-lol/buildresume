@@ -1,16 +1,23 @@
 "use client"
+import React, { useRef } from 'react';
 import { templates } from "../templates";
 import Link from "next/link";
 import { useSelector } from "react-redux";
 import { RootState } from "../store";
 import {Info} from '../features/userInfoSlice'
+import {useReactToPrint} from 'react-to-print'
 
 interface Prop {
   id: number;
   personalInfo: Info
 }
 const PreviewResume = ({ id }: Prop) => {
-  const { personalInfo } = useSelector((state: RootState) => state.userInfo);
+  const componentRef = useRef(null);
+  const { personalInfo, education, experience, skill, summary } = useSelector((state: RootState) => state.userInfo);
+  const download = useReactToPrint({
+    content: () => componentRef.current,
+  }); 
+
   return (
     <div className="w-11/12 pb-8 mx-auto">
       <div className="bg-white px-4 py-4 md:py-8 rounded-md mb-2">
@@ -21,7 +28,14 @@ const PreviewResume = ({ id }: Prop) => {
           {/* Injected Resume */}
           {templates.map((temp, i) => {
             return (
-              temp.id == id && <temp.temp personalInfo={personalInfo} key={i} />
+              temp.id == id && <temp.temp 
+              personalInfo={personalInfo} 
+              education={education}
+              experience= {experience}
+              skill = {skill}
+              summary={summary}
+              refs={componentRef}
+              key={i} />
             );
           })}
           {/* Injected Resume preview */}
@@ -33,9 +47,11 @@ const PreviewResume = ({ id }: Prop) => {
           <p className="text-black/50 text-md font-medium text-center">
             Download it or customize it more
           </p>
-          <button className="text-white text-lg bg-blue-500 font-medium my-4 py-3 w-full rounded-md">
+         
+            <button onClick={download} className="text-white text-lg bg-blue-500 font-medium my-4 py-3 w-full rounded-md">
             Download
           </button>
+
           <button className="text-blue-500 text-lg bg-transparent border border-blue-500 font-medium my-1 py-3 w-full rounded-md">
             Print
           </button>
