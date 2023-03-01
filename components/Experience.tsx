@@ -127,7 +127,7 @@ const Experience = ({ id }: Prop) => {
             className="w-full h-[10rem] p-2 outline-none rounded-md border border-gray-300"
           ></textarea>
 
-          {expAr.map((exp, i) => (
+          {experience.map((exp, i) => (
             <div key={i}>
               <div className="border-t  mt-4 py-2 border-gray-300">
                 <div className="text-xl font-semibold">
