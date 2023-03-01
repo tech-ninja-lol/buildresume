@@ -32,7 +32,7 @@ export const userInfoSlice = createSlice({
   reducers: {
     getPersonalInfo: (state, action: PayloadAction<Info>) => {
       state.personalInfo = action.payload;
-      localStorage.setItem('personalInfo', JSON.stringify({okey: 'this is crazy'}))
+      localStorage.setItem('personalInfo', JSON.stringify(state.personalInfo))
     },
     getSummary: (state, action)=>{
       state.summary = action.payload

@@ -9,7 +9,7 @@ import {useReactToPrint} from 'react-to-print'
 
 interface Prop {
   id: number;
-  personalInfo: Info
+  personalInfo?: Info
 }
 const PreviewResume = ({ id }: Prop) => {
   const componentRef = useRef(null);

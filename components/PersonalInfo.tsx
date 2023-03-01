@@ -45,7 +45,7 @@ const PersonalInfo = ({id}:Prop) => {
                 <form className='w-full bg-white px-4 py-8 rounded-md md:w-8/12' action="">
                 <div className='flex flex-col md:space-x-4 items-center md:flex-row'>
                     <div className="relative w-full mt-5">
-                        <input onChange={(e)=>{setPersonalInfo({
+                        <input value={personalInfo.title} onChange={(e)=>{setPersonalInfo({
                             ...personalInfo, title: e.target.value
                         })}} type="text" name="job title" placeholder="Job title" className="peer float-input" autoComplete="off" />
                         <label  className="float-label">
