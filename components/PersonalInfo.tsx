@@ -1,4 +1,5 @@
 'use client'
+import {useEffect} from 'react'
 import Image from 'next/image'
 import user from '../assets/user-1-svgrepo-com.svg'
 import cvhero from '../assets/cvhero.svg'
@@ -6,36 +7,25 @@ import Link from 'next/link'
 import {useState} from 'react'
 import {useDispatch} from 'react-redux'
 import {AppDispatch} from '../store'
-import {getPersonalInfo} from '../features/userInfoSlice'
+import {getPersonalInfo, Info} from '../features/userInfoSlice'
+import { useSelector } from "react-redux";
+import { RootState } from "../store";
+
 interface Prop {
     id:number
 }
 
-interface Info {
-    title?: string;
-    firstName?: string;
-    lastName?: string;
-    email?: string;
-    address?: string;
-    phone?: number;
-    postalCode?: number
-}
+ 
 const PersonalInfo = ({id}:Prop) => {
-    
-  const dispatch = useDispatch<AppDispatch>();
+    const { storeInfo } = useSelector((state: RootState) => state.userInfo);
+ 
+    const dispatch = useDispatch<AppDispatch>();
 
-    const [personalInfo, setPersonalInfo] = useState<Info>({
-        title: '',
-        firstName: '', 
-        lastName: '', 
-        email: '',
-        address: '',
-        phone: 0,
-        postalCode: 0,
-    })
+    const [personalInfo, setPersonalInfo] = useState<Info>(storeInfo)
     const submitHandler =()=>{
         dispatch(getPersonalInfo(personalInfo))        
     }
+    
     return (
        <div className='w-11/12 pb-8 mx-auto'>
            <div className='bg-white px-4 py-4 md:py-8 rounded-md mb-2'>
@@ -64,7 +54,7 @@ const PersonalInfo = ({id}:Prop) => {
                     <div className="relative w-full mt-5">
                         <input onChange={(e)=>{setPersonalInfo({
                             ...personalInfo, firstName: e.target.value
-                        })}}  type="text" name="first name" id="firstname" placeholder="first name" 
+                        })}}  type="text" value={personalInfo.firstName} name="first name" id="firstname" placeholder="first name" 
                         className="float-input peer" autoComplete="off" />
                         <label  className="float-label">
                             First name
@@ -73,7 +63,7 @@ const PersonalInfo = ({id}:Prop) => {
                     <div className="relative w-full mt-5">
                         <input onChange={(e)=>{setPersonalInfo({
                             ...personalInfo, lastName: e.target.value
-                        })}} type="text" name="Last name" id="Last name" placeholder="Last name" className="peer float-input" />
+                        })}} type="text" name="Last name" value={personalInfo.lastName} id="Last name" placeholder="Last name" className="peer float-input" />
 
                         <label  className="float-label">Last name</label>
                     </div>
@@ -82,7 +72,7 @@ const PersonalInfo = ({id}:Prop) => {
                     <div className="relative w-full mt-5">
                         <input onChange={(e)=>{setPersonalInfo({
                             ...personalInfo, email: e.target.value
-                        })}} type="email" name="email" id="email" placeholder="email" 
+                        })}} type="email" value={personalInfo.email} name="email" id="email" placeholder="email" 
                         className="float-input peer" autoComplete="off" />
                         <label  className="float-label">
                             Email Address
@@ -99,14 +89,14 @@ const PersonalInfo = ({id}:Prop) => {
                 <div className="relative mt-5">
                     <input onChange={(e)=>{setPersonalInfo({
                             ...personalInfo, address: e.target.value
-                        })}} type="text" name="address" id="address" placeholder="address" className="peer float-input" autoComplete="off" />
+                        })}} type="text" value={personalInfo.address} name="address" id="address" placeholder="address" className="peer float-input" autoComplete="off" />
                     <label className="float-label">Address</label>
                 </div>
                 <div className='flex flex-col md:space-x-4 items-center md:flex-row'>
                     <div className="relative w-full mt-5">
                         <input onChange={(e)=>{setPersonalInfo({
                             ...personalInfo, postalCode: Number(e.target.value)
-                        })}} type="number" name="postal-code" id="postal-code" placeholder="postal-code" 
+                        })}} type="number" value={personalInfo.postalCode} name="postal-code" id="postal-code" placeholder="postal-code" 
                         className="float-input peer" autoComplete="off" />
                         <label  className="float-label">
                             Postal Code

@@ -1,12 +1,14 @@
 "use client";
 import {useRouter} from 'next/navigation'
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import {useSelector} from 'react-redux'
+import { RootState } from "../store";
 import Image from "next/image";
 import Link from "next/link";
 import cvhero from "../assets/cvhero.svg";
 import {useDispatch} from 'react-redux'
 import {AppDispatch} from '../store'
-import {getEducation, getExperience, getSkills, getSummary} from '../features/userInfoSlice'
+import {getEducation, addStoreExperience, addStoreEducation, addStoreSkill, getExperience, getSkills, getSummary} from '../features/userInfoSlice'
 import { title } from "process";
 interface Prop {
   id: number;
@@ -41,45 +43,30 @@ export interface eduType {
 
 const Experience = ({ id }: Prop) => {
 
+  const { education:storeEducation, skill:storeSkill, summary:storeSummary, experience:storeExperience  } = useSelector((state: RootState) => state.userInfo);
+  
   const router = useRouter()
   const dispatch = useDispatch<AppDispatch>();
 
-  const [experience, setExperience] = useState<ExperienceType[]>([
-    {
-      id: 1,
+  const [experience, setExperience] = useState<ExperienceType[]>(storeExperience);
+
+  console.log(storeExperience)
+  
+  const [education, setEducation] = useState<eduType[]>(storeEducation);
+  // const [expCount, setExpCount] = useState(1)
+  const [summary, setSummary] = useState<string>(storeSummary)
+
+  const [skills, setSkills] = useState<SkillType[]>(storeSkill);
+  // console.log(workExperience)
+  const addExperience = (e:React.FormEvent) => {
+    e.preventDefault();
+    dispatch(addStoreExperience({
+      id: experience.length + 1,
       title: "",
       city: "",
       company: "",
       description: "",
-      from: "",
-      to: "",
-    },
-  ]);
-
-  
-  const [education, setEducation] = useState<eduType[]>([
-    {
-      id: 1,
-      specialization: "",
-      school: "",
-      description: "",
-      from: '',
-      to: ""
-    },
-  ]);
-  // const [expCount, setExpCount] = useState(1)
-  const [summary, setSummary] = useState<string>('')
-
-  const [skills, setSkills] = useState<SkillType[]>([
-    {
-      id: 1,
-      skill: "",
-      level: "",
-    },
-  ]);
-  // console.log(workExperience)
-  const addExperience = (e:React.FormEvent) => {
-    e.preventDefault();
+    }))
     setExperience([
       ...experience,
       {
@@ -94,6 +81,14 @@ const Experience = ({ id }: Prop) => {
   };
   const addEducation = (e:React.FormEvent) => {
     e.preventDefault();
+    dispatch(addStoreEducation({
+      id: education.length + 1,
+      specialization: "",
+      school: "",
+      description: "",
+      to: '',
+      from: ''
+    }))
     setEducation([
       ...education,
       {
@@ -108,8 +103,14 @@ const Experience = ({ id }: Prop) => {
     // setExpCount(expCount + 1)
   };
 
+  const focusRef = useRef<HTMLInputElement>(null)
   const addSkill = (e:React.FormEvent) => {
     e.preventDefault();
+    dispatch(addStoreSkill({
+      id: skills.length + 1,
+      level: "",
+      skill: "",
+    }))
     setSkills([
       ...skills,
       {
@@ -118,6 +119,7 @@ const Experience = ({ id }: Prop) => {
         skill: "",
       },
     ]);
+    focusRef.current?.focus()
   };
 
  
@@ -175,6 +177,8 @@ const Experience = ({ id }: Prop) => {
     router.push(`/template/${id}/preview`)
   }
   // console.log(expAr);
+  
+
   return (
     <div className="w-11/12 pb-8 mx-auto">
       <div className="bg-white px-4 py-4 md:py-8 rounded-md mb-2">
@@ -221,6 +225,7 @@ const Experience = ({ id }: Prop) => {
                     onChange={updateFieldChanged(exp, i)}
                     type="text"
                     name="title"
+                    value={exp.title}
                     placeholder="title"
                     className="peer float-input"
                     autoComplete="off"
@@ -232,6 +237,7 @@ const Experience = ({ id }: Prop) => {
                     onChange={updateFieldChanged(exp, i)}
                     type="text"
                     name="city"
+                    value={exp.city}
                     placeholder="city"
                     className="peer float-input"
                     autoComplete="off"
@@ -245,6 +251,7 @@ const Experience = ({ id }: Prop) => {
                   type="text"
                   name="company"
                   id="company"
+                  value={exp.company}
                   placeholder="company"
                   className="float-input peer"
                   autoComplete="off"
@@ -258,6 +265,7 @@ const Experience = ({ id }: Prop) => {
                   <input
                     type="month"
                     name="from"
+                    value={exp.from}
                     id="from"
                     onChange={updateFieldChanged(exp, i)}
                     className="peer float-input"
@@ -270,6 +278,7 @@ const Experience = ({ id }: Prop) => {
                     type="month"
                     name="to"
                     id="to"
+                    value={exp.to}
                     onChange={updateFieldChanged(exp, i)}
                     className="peer float-input"
                   />
@@ -283,6 +292,7 @@ const Experience = ({ id }: Prop) => {
                   name="description"
                   placeholder="write here"
                   onChange={updateFieldChangedTextArea(exp, i)}
+                  value={exp.description}
                   className="w-full h-[10rem] p-2 outline-none rounded-md border border-gray-300"
                 ></textarea>
               </div>
@@ -313,6 +323,7 @@ const Experience = ({ id }: Prop) => {
                     onChange={updateFieldEducation(edu, i)}
                     name="specialization"
                     id="specialization"
+                    value={edu.specialization}
                     placeholder="specialization"
                     className="float-input peer"
                     autoComplete="off"
@@ -325,6 +336,7 @@ const Experience = ({ id }: Prop) => {
                     name="school"
                     onChange={updateFieldEducation(edu, i)}
                     id="school"
+                    value={edu.school}
                     placeholder="University/school"
                     className="peer float-input"
                   />
@@ -338,6 +350,7 @@ const Experience = ({ id }: Prop) => {
                     type="month"
                     name="from"
                     id="from"
+                    value={edu.from}
                     onChange={updateFieldEducation(edu, i)}
                     className="peer float-input"
                   />
@@ -349,6 +362,7 @@ const Experience = ({ id }: Prop) => {
                     type="month"
                     name="to"
                     id="to"
+                    value={edu.to}
                     onChange={updateFieldEducation(edu, i)}
                     className="peer float-input"
                   />
@@ -360,6 +374,7 @@ const Experience = ({ id }: Prop) => {
                 <label className="float-label">Description</label>
                 <textarea
                   name="description"
+                  value={edu.description}
                   onChange={updateFieldEducationTextArea(edu, i)}
                   placeholder="write here"
                   className="w-full h-[10rem] p-2 outline-none rounded-md border border-gray-300"
@@ -394,6 +409,8 @@ const Experience = ({ id }: Prop) => {
                     type="text"
                     name="skill"
                     id="skill"
+                    value={skill.skill}
+                    ref={focusRef}
                     onChange={updateFieldSkills(skill, i)}
                     placeholder="skill"
                     className="float-input peer"

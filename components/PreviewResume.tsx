@@ -13,7 +13,7 @@ interface Prop {
 }
 const PreviewResume = ({ id }: Prop) => {
   const componentRef = useRef(null);
-  const { personalInfo, education, experience, skill, summary } = useSelector((state: RootState) => state.userInfo);
+  const { storeInfo, skill, summary, education, experience } = useSelector((state: RootState) => state.userInfo);
   const download = useReactToPrint({
     content: () => componentRef.current,
   }); 
@@ -29,7 +29,7 @@ const PreviewResume = ({ id }: Prop) => {
           {templates.map((temp, i) => {
             return (
               temp.id == id && <temp.temp 
-              personalInfo={personalInfo} 
+              personalInfo={storeInfo} 
               education={education}
               experience= {experience}
               skill = {skill}
