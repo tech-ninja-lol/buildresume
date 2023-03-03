@@ -29,13 +29,30 @@ const initialState:State = {
   : '',
   experience: typeof window !== 'undefined' && localStorage.getItem("experience")
   ? JSON.parse(localStorage.getItem("experience") || '[]')
-  : [],
+  : [{
+    id: 1,
+    title: "",
+    city: "",
+    company: "",
+    description: "",
+  }],
   education: typeof window !== 'undefined' && localStorage.getItem("education")
   ? JSON.parse(localStorage.getItem("education") || '[]')
-  : [],
+  : [{
+    id: 1,
+    specialization: "",
+    school: "",
+    description: "",
+    to: '',
+    from: ''
+  }],
   skill: typeof window !== 'undefined' && localStorage.getItem("skill")
   ? JSON.parse(localStorage.getItem("skill") || '[]')
-  : [],
+  : [{
+    id: 1,
+    level: "",
+    skill: "",
+  }],
 };
 
 export const userInfoSlice = createSlice({

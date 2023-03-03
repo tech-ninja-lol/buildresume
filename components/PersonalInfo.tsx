@@ -48,6 +48,7 @@ const PersonalInfo = ({id}:Prop) => {
                             <Image width={30} alt='user icon' src={user} />
                         </div>
                         <p className='font-semibold text-blue-500'>Upload Photo</p>
+                        {/* <input className='hidden' type='file'  /> */}
                     </div>
                 </div> 
                 <div className='flex flex-col md:space-x-4 items-center md:flex-row'>
