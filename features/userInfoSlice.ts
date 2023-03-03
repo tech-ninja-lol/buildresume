@@ -18,21 +18,23 @@ export interface Info {
   phone?: number;
   postalCode?: number
 }
+
+
 const initialState:State = {
   storeInfo: localStorage.getItem("personalInfo")
-  ? JSON.parse(localStorage.getItem("personalInfo"))
+  ? JSON.parse(localStorage.getItem("personalInfo") || '{}')
   : {},
   summary: localStorage.getItem("summary")
-  ? JSON.parse(localStorage.getItem("summary"))
+  ? JSON.parse(localStorage.getItem("summary") || '')
   : '',
   experience: localStorage.getItem("experience")
-  ? JSON.parse(localStorage.getItem("experience"))
+  ? JSON.parse(localStorage.getItem("experience") || '[]')
   : [],
   education: localStorage.getItem("education")
-  ? JSON.parse(localStorage.getItem("education"))
+  ? JSON.parse(localStorage.getItem("education") || '[]')
   : [],
   skill: localStorage.getItem("skill")
-  ? JSON.parse(localStorage.getItem("skill"))
+  ? JSON.parse(localStorage.getItem("skill") || '[]')
   : [],
 };
 
