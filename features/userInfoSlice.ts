@@ -21,19 +21,19 @@ export interface Info {
 
 
 const initialState:State = {
-  storeInfo: localStorage.getItem("personalInfo")
+  storeInfo: typeof window !== 'undefined' && localStorage.getItem("personalInfo") 
   ? JSON.parse(localStorage.getItem("personalInfo") || '{}')
   : {},
-  summary: localStorage.getItem("summary")
+  summary: typeof window !== 'undefined' && localStorage.getItem("summary") 
   ? JSON.parse(localStorage.getItem("summary") || '')
   : '',
-  experience: localStorage.getItem("experience")
+  experience: typeof window !== 'undefined' && localStorage.getItem("experience")
   ? JSON.parse(localStorage.getItem("experience") || '[]')
   : [],
-  education: localStorage.getItem("education")
+  education: typeof window !== 'undefined' && localStorage.getItem("education")
   ? JSON.parse(localStorage.getItem("education") || '[]')
   : [],
-  skill: localStorage.getItem("skill")
+  skill: typeof window !== 'undefined' && localStorage.getItem("skill")
   ? JSON.parse(localStorage.getItem("skill") || '[]')
   : [],
 };
@@ -44,29 +44,29 @@ export const userInfoSlice = createSlice({
   reducers: {
     getPersonalInfo: (state, action: PayloadAction<Info>) => {
       state.storeInfo = action.payload;
-      localStorage.setItem('personalInfo', JSON.stringify(state.storeInfo))
+      typeof window !== 'undefined' && localStorage.setItem('personalInfo', JSON.stringify(state.storeInfo))
     },
     addStoreExperience: (state, action)=>{
       state.experience.push(action.payload)
     },
     getSummary: (state, action)=>{
       state.summary = action.payload
-      localStorage.setItem('summary', JSON.stringify(state.summary))
+      typeof window !== 'undefined' && localStorage.setItem('summary', JSON.stringify(state.summary))
     },
     getExperience: (state, action)=>{
       state.experience = action.payload
-      localStorage.setItem('experience', JSON.stringify(state.experience))
+      typeof window !== 'undefined' && localStorage.setItem('experience', JSON.stringify(state.experience))
     },
     getEducation: (state, action)=>{
       state.education = action.payload
-      localStorage.setItem('education', JSON.stringify(state.education))
+      typeof window !== 'undefined' && localStorage.setItem('education', JSON.stringify(state.education))
     },
     addStoreEducation: (state, action)=>{
       state.experience.push(action.payload)
     },
     getSkills: (state, action)=>{
       state.skill = action.payload
-      localStorage.setItem('skill', JSON.stringify(state.skill))
+      typeof window !== 'undefined' && localStorage.setItem('skill', JSON.stringify(state.skill))
     },
     addStoreSkill: (state, action)=>{
       state.experience.push(action.payload)
