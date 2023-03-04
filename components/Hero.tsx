@@ -4,7 +4,7 @@ import Image from 'next/image'
 const Hero = () => {
     return (
         <section className='w-10/12 relative mx-auto flex flex-col md:flex-row justify-between items-center'>
-            <div className='w-full py-[10rem] items-center md:items-start md:w-1/2  flex flex-col'>
+            <div className='w-full py-[10rem] md:py-[7rem] items-center md:items-start md:w-1/2  flex flex-col'>
                 <h1 className='text-[2.3rem] text-center mb-2 md:text-left md:text-[4rem] md:leading-snug font-bold'>
                     Free CV maker<br/>Create your CV Online</h1>
                 <p className='text-center md:text-left my-2 font-semibold text-gray-700 text-lg'>Create your cv for free in just 5 minutes</p>

@@ -1,6 +1,9 @@
 import { StaticImageData } from 'next/image'
 import temp1 from './assets/free-cv-template-10.jpg'
 import temp2 from './assets/Free-CV-Template.jpg'
+import temp7 from './assets/cvtemp1.png'
+import temp8 from './assets/cvtemp2.png'
+import temp9 from './assets/cvtemp3.png'
 import temp3 from './assets/free-cv-template-2.jpg'
 import temp4 from './assets/free-cv-template-4.jpg'
 import temp5 from './assets/free-cv-template-6.jpg'
@@ -18,25 +21,25 @@ interface Template{
 export const templates:Template[] = [
     {
         id: 1,
-        image:temp1,
+        image:temp5,
         alt: 'resume sample1',
         temp: Template1
     },
     {
         id:2,
-        image: temp2,
+        image: temp7,
         alt: 'resume sample2',
         temp: Template5
     },
     {
         id:3,
-        image: temp3,
+        image: temp8,
         alt: 'resume sample3',
         temp: Template1
     },
     {
         id:4,
-        image: temp4,
+        image: temp9,
         alt: 'resume sample4',
         temp: Template5,
     },

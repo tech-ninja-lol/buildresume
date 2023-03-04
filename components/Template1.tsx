@@ -23,7 +23,7 @@ const Template1 = ({
     personalInfo;
     const componentRef= refs
   return (
-    <div ref={componentRef} className="w-full text-[14px] shadow-md p-6 my-8 border border-gray-200 mx-auto flex flex-col">
+    <div ref={componentRef} className="w-full text-[14px]  p-6  border border-b-transparent  mx-auto flex flex-col">
       {/* Title starts */}
       <div id="title">
         <h1 className="text-3xl font-semibold">
@@ -61,7 +61,7 @@ const Template1 = ({
       {/* Professional summary ends */}
 
       {/* Experience starts */}
-      <h2 className="mt-4 font-semibold text-black/90">Work Experience</h2>
+      <h2 className="mt-0 font-semibold text-black/90">Work Experience</h2>
       <div className="border-t py-4 border-gray-300">
         <ul className="space-y-4">
           {/* Experience 1 starts */}
@@ -94,7 +94,7 @@ const Template1 = ({
       {/* Experience ends */}
 
       {/* Education starts */}
-      <h2 className="mt-4 font-semibold text-black/90">Education</h2>
+      <h2 className="mt-2 font-semibold text-black/90">Education</h2>
       <div className="border-t py-4 border-gray-300">
         <ul className="space-y-4">
           {/* Education 1 starts */}
@@ -125,7 +125,7 @@ const Template1 = ({
       {/* Education Ends */}
 
       {/* Skills starts */}
-      <h2 className="mt-4 font-semibold text-black/90">Skills</h2>
+      <h2 className="mt-2 font-semibold text-black/90">Skills</h2>
       <div className="border-t py-4 border-gray-300">
         <ul className="space-x-2 space-y-2">
           {/* Skills 1 starts */}
