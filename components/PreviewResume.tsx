@@ -48,25 +48,25 @@ const PreviewResume = ({ id }: Prop) => {
             Download it or customize it more
           </p>
          
-            <button onClick={download} className="text-white text-lg bg-blue-500 font-medium my-4 py-3 w-full rounded-md">
+            <button onClick={download} className="text-white text-lg bg-vert font-medium my-4 py-3 w-full rounded-md">
             Download
           </button>
 
-          <button className="text-blue-500 text-lg bg-transparent border border-blue-500 font-medium my-1 py-3 w-full rounded-md">
+          <button className="text-vert text-lg bg-transparent border border-vert font-medium my-1 py-3 w-full rounded-md">
             Print
           </button>
         </div>
       </div>
       <div className="w-full my-8 md:w-8/12 flex flex-col-reverse gap-y-4 md:flex-row md:space-x-8">
         <Link href={`/template/${id}/experience`}>
-          <button className="bg-transparent w-full border border-blue-500 rounded-md font-semibold text-lg text-blue-500 md:w-[14rem] h-14">
+          <button className="bg-transparent w-full border border-vert rounded-md font-semibold text-lg text-vert md:w-[14rem] h-14">
             Back
           </button>
         </Link>
         <Link href={`/template/${id}/preview`}>
           <button
             disabled
-            className="bg-blue-500/30 rounded-md font-semibold text-lg text-white w-full md:w-[14rem] h-14"
+            className="bg-vert/30 rounded-md font-semibold text-lg text-white w-full md:w-[14rem] h-14"
           >
             Save and Continue
           </button>

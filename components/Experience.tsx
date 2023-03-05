@@ -50,7 +50,6 @@ const Experience = ({ id }: Prop) => {
 
   const [experience, setExperience] = useState<ExperienceType[]>(storeExperience);
 
-  console.log(storeExperience)
   
   const [education, setEducation] = useState<eduType[]>(storeEducation);
   // const [expCount, setExpCount] = useState(1)
@@ -144,7 +143,6 @@ const Experience = ({ id }: Prop) => {
     newEdu[index] = { ...edu, [(e.target as HTMLInputElement).name]: (e.target as HTMLInputElement).value }; // replace e.target.value with whatever you want to change it to
    
     setEducation(newEdu);
-    console.log(education);
   };
 
   const updateFieldEducationTextArea = (edu:eduType, index: number) => 
@@ -153,7 +151,7 @@ const Experience = ({ id }: Prop) => {
     newEdu[index] = { ...edu, [(e.target as HTMLInputElement).name]: (e.target as HTMLInputElement).value }; // replace e.target.value with whatever you want to change it to
    
     setEducation(newEdu);
-    console.log(education);
+    // console.log(education);
   };
 
   const updateFieldSkills = (skill:SkillType, index: number) => 
@@ -167,6 +165,16 @@ const Experience = ({ id }: Prop) => {
     setSkills(newSkill);
     console.log(skills);
   };
+  const updateFieldLevel = (skill:SkillType, index: number) => 
+  (e:React.FormEvent<HTMLSelectElement>):void => {
+    let newSkill = [...skills]; // copying the old datas array
+    // a deep copy is not needed as we are overriding the whole object below, and not setting a property of it. this does not mutate the state.
+    newSkill[index] = { ...skill, [(e.target as HTMLSelectElement).name]: (e.target as HTMLSelectElement).value }; // replace e.target.value with whatever you want to change it to
+    // console.log(newArr)
+    setSkills(newSkill);
+    console.log(skills);
+  };
+
 
   const experienceHandler = (e:React.FormEvent)=>{
     e.preventDefault()
@@ -300,7 +308,7 @@ const Experience = ({ id }: Prop) => {
           ))}
           <button
             onClick={addExperience}
-            className="text-blue-500 font-semibold"
+            className="text-vert font-semibold"
           >
             Add more experience +
           </button>
@@ -385,7 +393,7 @@ const Experience = ({ id }: Prop) => {
 
           <button
             onClick={addEducation}
-            className="text-blue-500 font-semibold"
+            className="text-vert font-semibold"
           >
             Add more education +
           </button>
@@ -421,12 +429,12 @@ const Experience = ({ id }: Prop) => {
                 <div className="relative w-full mt-5">
                   <label className="float-label">Level</label>
 
-                  <select className="float-input" name="level" id="level">
+                  <select value={skill.level} className="float-input" onChange={updateFieldLevel(skill, i)} name="level" id="level">
                     <option value="">Select skill level</option>
                     <option value="beginner">Beginner</option>
                     <option value="good">Good</option>
                     <option value="intermediate">Intermediate</option>
-                    <option value="advanced">Advanced</option>
+                    <option value="advanced">Advanced</option> 
                   </select>
                 </div>
               </div>
@@ -434,7 +442,7 @@ const Experience = ({ id }: Prop) => {
           ))}
           <button
             onClick={addSkill}
-            className="text-blue-500 mt-4 font-semibold"
+            className="text-vert mt-4 font-semibold"
           >
             Add more skills +
           </button>
@@ -462,12 +470,12 @@ const Experience = ({ id }: Prop) => {
       </div>
       <div className="w-full my-8 md:w-8/12 flex flex-col-reverse gap-y-4 md:flex-row md:space-x-8">
         <Link href={`/template/${id}/user`}>
-          <button className="bg-transparent w-full border border-blue-500 rounded-md font-semibold text-lg text-blue-500 md:w-[14rem] h-14">
+          <button className="bg-transparent w-full border border-vert rounded-md font-semibold text-lg text-vert md:w-[14rem] h-14">
             Back
           </button>
         </Link>
         {/* <Link href={`/template/${id}/preview`}> */}
-          <button onClick={experienceHandler} className="bg-blue-500 rounded-md font-semibold text-lg text-white w-full md:w-[14rem] h-14">
+          <button onClick={experienceHandler} className="bg-vert rounded-md font-semibold text-lg text-white w-full md:w-[14rem] h-14">
             Save and Continue
           </button>
         {/* </Link> */}

@@ -44,10 +44,10 @@ const PersonalInfo = ({id}:Prop) => {
                     </div>
                     <div className="flex items-center space-x-4 w-full mt-5">
                         <div className='flex bg-gray-100 justify-center h-[4rem] w-[4rem] 
-                        border-2 rounded-lg border-dashed border-blue-500'>
+                        border-2 rounded-lg border-dashed border-vert'>
                             <Image width={30} alt='user icon' src={user} />
                         </div>
-                        <p className='font-semibold text-blue-500'>Upload Photo</p>
+                        <p className='font-semibold text-vert'>Upload Photo</p>
                         {/* <input className='hidden' type='file'  /> */}
                     </div>
                 </div> 
@@ -122,12 +122,12 @@ const PersonalInfo = ({id}:Prop) => {
             </div>
             <div className="w-full my-8 md:w-8/12 flex flex-col-reverse gap-y-4 md:flex-row md:space-x-8">
         <Link href={`/template/${id}/user`}>
-          <button disabled className="bg-transparent opacity-50 w-full border border-blue-500 rounded-md font-semibold text-lg text-blue-500 md:w-[14rem] h-14">
+          <button disabled className="bg-transparent opacity-50 w-full border border-vert rounded-md font-semibold text-lg text-vert md:w-[14rem] h-14">
             Back
           </button>
         </Link>
         <Link href={`/template/${id}/experience`}>
-          <button onClick={submitHandler} className="bg-blue-500 rounded-md font-semibold text-lg text-white w-full md:w-[14rem] h-14">
+          <button onClick={submitHandler} className="bg-vert rounded-md font-semibold text-lg text-white w-full md:w-[14rem] h-14">
             Save and Continue
           </button>
         </Link>
