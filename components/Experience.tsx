@@ -163,7 +163,6 @@ const Experience = ({ id }: Prop) => {
     newSkill[index] = { ...skill, [(e.target as HTMLInputElement).name]: (e.target as HTMLInputElement).value }; // replace e.target.value with whatever you want to change it to
     // console.log(newArr)
     setSkills(newSkill);
-    console.log(skills);
   };
   const updateFieldLevel = (skill:SkillType, index: number) => 
   (e:React.FormEvent<HTMLSelectElement>):void => {
@@ -172,7 +171,6 @@ const Experience = ({ id }: Prop) => {
     newSkill[index] = { ...skill, [(e.target as HTMLSelectElement).name]: (e.target as HTMLSelectElement).value }; // replace e.target.value with whatever you want to change it to
     // console.log(newArr)
     setSkills(newSkill);
-    console.log(skills);
   };
 
 
