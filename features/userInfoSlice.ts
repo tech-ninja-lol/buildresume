@@ -8,7 +8,7 @@ interface State {
   education: eduType[];
   summary: string
 }
-
+ 
 export interface Info {
   title?: string;
   firstName?: string;
@@ -16,7 +16,7 @@ export interface Info {
   email?: string;
   address?: string;
   phone?: number;
-  postalCode?: number
+  linkedin?: string;
 }
 
 

@@ -42,14 +42,14 @@ const PersonalInfo = ({id}:Prop) => {
                             Job title
                         </label>
                     </div>
-                    <div className="flex items-center space-x-4 w-full mt-5">
+                    {/* <div className="flex items-center space-x-4 w-full mt-5">
                         <div className='flex bg-gray-100 justify-center h-[4rem] w-[4rem] 
                         border-2 rounded-lg border-dashed border-vert'>
                             <Image width={30} alt='user icon' src={user} />
                         </div>
                         <p className='font-semibold text-vert'>Upload Photo</p>
-                        {/* <input className='hidden' type='file'  /> */}
-                    </div>
+                       
+                    </div> */}
                 </div> 
                 <div className='flex flex-col md:space-x-4 items-center md:flex-row'>
                     <div className="relative w-full mt-5">
@@ -96,17 +96,17 @@ const PersonalInfo = ({id}:Prop) => {
                 <div className='flex flex-col md:space-x-4 items-center md:flex-row'>
                     <div className="relative w-full mt-5">
                         <input onChange={(e)=>{setPersonalInfo({
-                            ...personalInfo, postalCode: Number(e.target.value)
-                        })}} type="number" value={personalInfo.postalCode} name="postal-code" id="postal-code" placeholder="postal-code" 
+                            ...personalInfo, linkedin: e.target.value
+                        })}} type="text" value={personalInfo.linkedin} name="postal-code" id="postal-code" placeholder="postal-code" 
                         className="float-input peer" autoComplete="off" />
                         <label  className="float-label">
-                            Postal Code
+                            Linkedin
                         </label>
                     </div>
                     <div className="relative w-full mt-5">
-                        <input type="number" name="phone number" id="phone number" placeholder="phone number" className="peer float-input" />
+                        <input type="text" name="website" id="website" placeholder="website" className="peer float-input" />
 
-                        <label  className="float-label">Phone number</label>
+                        <label  className="float-label">Website</label>
                     </div>
                 </div>
                 </form>

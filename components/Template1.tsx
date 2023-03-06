@@ -21,7 +21,7 @@ const Template1 = ({
   refs
 }: Prop) => {
     
-  const { firstName, lastName, title, email, address, phone, postalCode } =
+  const { firstName, lastName, title, email, address, phone, linkedin } =
     personalInfo;
     const componentRef= refs
   return (
@@ -47,10 +47,10 @@ const Template1 = ({
         </div>
         <div>
           <h3>
-            Website : <span>https://segun-adeniyi.vercel.app</span>
+            Address : <span>{address}</span>
           </h3>
           <h3>
-            Github : <span>https://github.com/hadeeny</span>
+            Linkedin : <span>{linkedin}</span>
           </h3>
         </div>
       </div>
