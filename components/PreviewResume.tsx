@@ -28,7 +28,7 @@ const PreviewResume = ({ id }: Prop) => {
           {/* Injected Resume */}
           {templates.map((temp, i) => {
             return (
-              temp.id == id && <temp.temp 
+              temp.id == id && <temp.temp  
               personalInfo={storeInfo} 
               education={education}
               experience= {experience}

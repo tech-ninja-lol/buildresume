@@ -1,5 +1,5 @@
 import { Info } from "../features/userInfoSlice";
-import { SkillType, eduType, ExperienceType } from "../components/Experience";
+import { SkillType, eduType, ExperienceType } from "./Experience";
 import SkillLevel from "@/components/SkillLevel";
 
 interface Prop {
@@ -11,14 +11,7 @@ interface Prop {
   refs: any;
 }
 
-const Template2 = ({
-  personalInfo,
-  experience,
-  summary,
-  skill,
-  education,
-  refs,
-}: Prop) => {
+const Template2 = ({personalInfo, summary, education, refs, skill, experience }:Prop) => {
   const { firstName, lastName, email, title, linkedin, phone, address } =
     personalInfo;
   return (
