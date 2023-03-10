@@ -31,6 +31,18 @@ export const templates:Template[] = [
         alt: 'resume sample2',
         temp: Template2
     },
+    {
+        id: 3,
+        image:temp5,
+        alt: 'resume sample1',
+        temp: Template1
+    },
+    {
+        id:4,
+        image: temp7,
+        alt: 'resume sample2',
+        temp: Template2
+    },
     // {
     //     id:3,
     //     image: temp8,
