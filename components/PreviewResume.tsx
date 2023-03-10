@@ -52,7 +52,7 @@ const PreviewResume = ({ id }: Prop) => {
             Download
           </button>
 
-          <button className="text-vert text-lg bg-transparent border border-vert font-medium my-1 py-3 w-full rounded-md">
+          <button onClick={download} className="text-vert text-lg bg-transparent border border-vert font-medium my-1 py-3 w-full rounded-md">
             Print
           </button>
         </div>

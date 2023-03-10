@@ -104,9 +104,22 @@ const PersonalInfo = ({id}:Prop) => {
                         </label>
                     </div>
                     <div className="relative w-full mt-5">
-                        <input type="text" name="website" id="website" placeholder="website" className="peer float-input" />
+                        <input onChange={(e)=>{setPersonalInfo({
+                            ...personalInfo, website: e.target.value
+                        })}} type="text" value={personalInfo.website} name="website" id="website" placeholder="website" className="peer float-input" />
 
                         <label  className="float-label">Website</label>
+                    </div>
+                </div>
+
+                <div className='flex flex-col md:space-x-4 items-center md:flex-row'>
+                    
+                    <div className="relative w-full mt-5">
+                        <input onChange={(e)=>{setPersonalInfo({
+                            ...personalInfo, github: e.target.value
+                        })}} type="text" value={personalInfo.github} name="github" id="github" placeholder="github" className="peer float-input" />
+
+                        <label  className="float-label">Github</label>
                     </div>
                 </div>
                 </form>

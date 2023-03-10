@@ -21,11 +21,11 @@ const Template1 = ({
   refs
 }: Prop) => {
     
-  const { firstName, lastName, title, email, address, phone, linkedin } =
+  const { firstName, lastName, website, github, title, email, address, phone, linkedin } =
     personalInfo;
     const componentRef= refs
   return (
-    <div ref={componentRef} className="w-full text-[12px] leading-[14px]  p-6  border border-b-transparent  mx-auto flex flex-col">
+    <div ref={componentRef} className="w-full text-[12px] leading-[14px] p-6  border border-b-transparent mx-auto flex flex-col">
       {/* Title starts */}
       <div id="title">
         <h1 className="text-3xl font-semibold">
@@ -44,6 +44,11 @@ const Template1 = ({
           <h3>
             Email : <span>{email}</span>
           </h3>
+          {github && (
+              <h3>
+              Github : <span>{github}</span>
+            </h3>
+          )}
         </div>
         <div>
           <h3>
@@ -52,6 +57,11 @@ const Template1 = ({
           <h3>
             Linkedin : <span>{linkedin}</span>
           </h3>
+          {website && (
+              <h3>
+              Website : <span>{website}</span>
+            </h3>
+          )}
         </div>
       </div>
       {/* Contact Ends */}

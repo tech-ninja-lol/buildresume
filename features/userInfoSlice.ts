@@ -17,6 +17,8 @@ export interface Info {
   address?: string;
   phone?: number;
   linkedin?: string;
+  website?: string;
+  github?:string;
 }
 
 

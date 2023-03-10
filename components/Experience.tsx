@@ -212,7 +212,7 @@ const Experience = ({ id }: Prop) => {
             placeholder="write here"
             className="w-full h-[10rem] p-2 outline-none rounded-md border border-gray-300"
           ></textarea>
-
+          
           {experience.map((exp, i) => (
             <div key={i}>
               <div className="border-t  mt-4 py-2 border-gray-300">
@@ -223,6 +223,7 @@ const Experience = ({ id }: Prop) => {
                   Add the jobs or positions you have held. In the description
                   talk about your best achievements and the tasks you were
                   doing.
+                  
                 </p>
               </div>
               <div className="flex border-t border-gray-300 flex-col md:space-x-4 items-center md:flex-row">
@@ -292,7 +293,9 @@ const Experience = ({ id }: Prop) => {
                   <label className="float-label">To</label>
                 </div>
               </div>
+              <div className='text-gray-500 pt-6'>To create bullet points, add each description on a new line by pressing the <span className='p-1 font-bold border rounded-md border-gray-300'>Enter</span> key </div>
               <div className="relative my-5">
+             
                 <label className="float-label">Description</label>
                 <textarea
                   name="description"
