@@ -27,7 +27,7 @@ const Template2 = ({personalInfo, summary, education, refs, skill, experience }:
       </div>
 
       {/* Title ends */}
-      <div className="w-full flex justify-between">
+      <div className="w-full text-[17px] flex justify-between">
         <div className="w-2/3 py-2 px-6">
           <p>{summary}</p>
           {/* Experience starts */}
