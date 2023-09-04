@@ -121,7 +121,7 @@ const Template2 = ({personalInfo, summary, education, refs, skill, experience }:
           )}
           {website && (
               <h3>
-              Website : <span>{website}</span>
+              Phone : <span>{website}</span>
             </h3>
           )}
           </div>
