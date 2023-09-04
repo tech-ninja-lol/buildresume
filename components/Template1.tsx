@@ -59,7 +59,7 @@ const Template1 = ({
           </h3>
           {website && (
               <h3>
-              Website : <span>{website}</span>
+              Phone : <span>{website}</span>
             </h3>
           )}
         </div>
